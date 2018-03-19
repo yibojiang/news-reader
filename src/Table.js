@@ -1,9 +1,10 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
-const Table = props => (
-  <div>
-    <h1>My News Table</h1>
+const Table = props =>
+  (<div>
+    <h1>Spiderman's Table</h1>
     {
       props.newsList.map((newsItem) =>
         <NewsItem
@@ -16,25 +17,31 @@ const Table = props => (
           onDismiss={() => props.onDismiss(newsItem.objectID)}
         />)
     }
-  </div>
+  </div>);
+
+// destructure
+const Foo = ({bar}) => (
+  <span>{bar}</span>
 );
 
-const NewsItem = (props) => (
+const NewsItem = props => (
   <div key={props.objectID}>
     <span>
       <a href={props.url}>{props.title}</a>
     </span>
-    <span>{props.author}</span>
+    <span>{props.description}</span>
     <span>{props.num_comments}</span>
     <span>{props.points}</span>
     <span>
-      <button
-        onClick={props.onDismiss}
-        type="button"> Dismiss
-      </button>
+      <Button onClick={props.onDismiss}>Dismiss</Button>
     </span>
   </div>
 );
 
+// transclusion
+const Button = (props) =>
+  <button className='btn btn-danger' type="button" onClick={props.onClick}>
+    {props.children}
+  </button>
 
 export default Table;
