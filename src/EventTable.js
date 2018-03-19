@@ -18,8 +18,8 @@ const EventTable = props =>
 
 const EventItem = props => (
   <div key={props.title}>
-    <span>{props.title}</span>
-    <span>{props.description}</span>
+    <h3>{props.title}</h3>
+    <p>{props.description}</p>
     <span>
       <Button onClick={props.onDismiss}>Dismiss</Button>
     </span>
